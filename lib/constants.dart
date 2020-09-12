@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
-const kBannerBackgroundColor = Color(0xFF21bf73);
-const kBannerForegroundColor = Color(0xFFf1f3f8);
-const kBannerSecondBackgroundColor = Color(0xFFffc93c);
+const kBannerBackgroundMixOne = Color(0xFF21bf73);
+const kBodyBackgroundColor = Color(0xFFf1f3f8);
 const kBlackColor = Color(0xFF000000);
-const kAppBarBackgroundColor = Color(0xFF07689f);
+const kWhiteColor = Color(0xFFFFFFFF);
+const kBannerBackgroundMixTwo = Color(0xFF07689f);
 
 //Navigation
-const kMyRentScreen = 'myrentscreen';
-const kMyAssetsScreen = 'myassetscreen';
-const kMyNotificationScreen = 'mynotificationscreen';
-
+const kMyRentScreen = 'myRentScreen';
+const kMyAssetsScreen = 'myAssetsScreen';
+const kMyNotificationScreen = 'myNotificationScreen';
+const kSingleAssetScreen = 'singleAssetScreen';
+const kAddNewAssetScreen = 'addNewAssetScreen';

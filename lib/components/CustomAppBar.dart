@@ -17,8 +17,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 begin: Alignment.topRight,
                 end: Alignment.bottomLeft,
                 colors: [
-                  kAppBarBackgroundColor,
-                  kBannerBackgroundColor,
+                  kBannerBackgroundMixTwo,
+                  kBannerBackgroundMixOne,
                 ])
         ),
       ),

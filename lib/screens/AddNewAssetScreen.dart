@@ -13,7 +13,7 @@ class _AddNewAssetScreenState extends State<AddNewAssetScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'New Asset',
+        mTitle: 'New Asset',
       ),
       body: Container(
         child: Column(
@@ -28,7 +28,7 @@ class _AddNewAssetScreenState extends State<AddNewAssetScreen> {
                   ),
                   SizedBox(height: 20.0,),
                   NeumorphicCard(
-                    child: Column(
+                    mChild: Column(
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(bottom: 20.0),
@@ -82,7 +82,7 @@ class _AddNewAssetScreenState extends State<AddNewAssetScreen> {
                   ),
                   SizedBox(height: 20.0,),
                   NeumorphicCard(
-                    child: Column(
+                    mChild: Column(
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(bottom: 20.0),
@@ -105,8 +105,8 @@ class _AddNewAssetScreenState extends State<AddNewAssetScreen> {
                     ),
                   ),
                   NeumorphicCard(
-                    innerPadding: 30.0,
-                    child: Center(
+                    mInnerPadding: 30.0,
+                    mChild: Center(
                       child: Text('Create'),
                     ),
                   )

@@ -12,3 +12,7 @@ const kMyAssetsScreen = 'myAssetsScreen';
 const kMyNotificationScreen = 'myNotificationScreen';
 const kSingleAssetScreen = 'singleAssetScreen';
 const kAddNewAssetScreen = 'addNewAssetScreen';
+const kSingleTenantScreen = 'singleTenantScreen';
+const kUpdateAssetScreen = 'updateAssetScreen';
+const kSingleChatScreen = 'singleChatScreen';
+const kMyAccountScreen = 'myAccountScreen';

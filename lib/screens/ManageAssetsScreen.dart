@@ -11,15 +11,20 @@ class ManageAssetsScreen extends StatefulWidget {
 }
 
 class _ManageAssetsScreenState extends State<ManageAssetsScreen> {
-
   int _currentIndex = 1;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: 'My Assets',),
+      appBar: CustomAppBar(
+        mTitle: 'My Assets',
+        mIconData: _currentIndex == 1 ? Icons.add : null,
+        mOnTap: _currentIndex == 1 ? ()  {
+          Navigator.pushNamed(context, kAddNewAssetScreen);
+        }: null,
+      ),
       body: Container(
-        color: kBodyBackgroundColor,
+        color: _currentIndex == 2 ? Colors.white : kBodyBackgroundColor,
         child: IndexedStack(
           index: _currentIndex,
           children: [
@@ -39,7 +44,9 @@ class _ManageAssetsScreenState extends State<ManageAssetsScreen> {
         fixedColor: kBannerBackgroundMixTwo,
         items: [
           BottomNavigationBarItem(
-            activeIcon: Icon(Icons.dashboard,),
+            activeIcon: Icon(
+              Icons.dashboard,
+            ),
             title: Text('Dashboard'),
             icon: Icon(Icons.dashboard),
           ),
@@ -56,4 +63,3 @@ class _ManageAssetsScreenState extends State<ManageAssetsScreen> {
     );
   }
 }
-

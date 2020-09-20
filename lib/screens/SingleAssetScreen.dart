@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rent_pay/components/CustomAppBar.dart';
 import 'package:rent_pay/components/NeumorphicButton.dart';
 import 'package:rent_pay/components/NeumorphicCard.dart';
+import 'package:rent_pay/components/NeumorphicFloatingActionButton.dart';
+import 'package:rent_pay/constants.dart';
 
 class SingleAssetScreen extends StatefulWidget {
   @override
@@ -9,13 +11,14 @@ class SingleAssetScreen extends StatefulWidget {
 }
 
 class _SingleAssetScreenState extends State<SingleAssetScreen> {
-  List hashList = [1, 2, 3, 4, 5];
+  List hashList = [1, 2,];
 
   @override
   Widget build(BuildContext context) {
     hashList = hashList.map((e) {
       return NeumorphicCard(
-        child: Row(
+        mInnerPadding: 20.0,
+        mChild: Row(
           children: [
             Expanded(flex: 1, child: Icon(Icons.person_outline)),
             Expanded(
@@ -26,6 +29,8 @@ class _SingleAssetScreenState extends State<SingleAssetScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      Text('Room A1',),
+                      SizedBox(height: 5.0,),
                       Text(
                         'Jared James',
                         style: TextStyle(
@@ -33,7 +38,7 @@ class _SingleAssetScreenState extends State<SingleAssetScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 5.0,
+                        height: 10.0,
                       ),
                       Row(
                         children: [
@@ -58,7 +63,13 @@ class _SingleAssetScreenState extends State<SingleAssetScreen> {
                 )),
             Expanded(
               flex: 1,
-              child: Icon(Icons.arrow_forward),
+              child: Column(
+                children: [
+                  GestureDetector(child: Icon(Icons.info_outline, color: Colors.grey, size: 30.0,), onTap: (){
+                    Navigator.pushNamed(context, kSingleTenantScreen);
+                  },),
+                ],
+              ),
             )
           ],
         ),
@@ -66,98 +77,174 @@ class _SingleAssetScreenState extends State<SingleAssetScreen> {
     }).toList();
     return Scaffold(
       appBar: CustomAppBar(
-        title: 'A-7-10b, Cypark Village',
+        mTitle: 'A-7-10b, Cypark Village',
+        mIconData: Icons.edit,
+        mOnTap: () {
+          Navigator.pushNamed(context, kUpdateAssetScreen);
+        },
       ),
-      body: Stack(children: [
-        Column(
-          children: [
-            Expanded(
-              child: ListView(
-                padding: EdgeInsets.all(20.0),
-                children: [
-                  Text("It's September time !"),
-                  SizedBox(
-                    height: 20.0,
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView(
+              padding: EdgeInsets.all(20.0),
+              children: [
+                Text("It's September time !"),
+                SizedBox(
+                  height: 20.0,
+                ),
+                NeumorphicCard(
+                  mInnerPadding: 20.0,
+                  mChild: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Container(
+                                  child: Text("6", style: TextStyle(
+                                    fontSize: 30.0
+                                  ),),
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Text("No.of tenant"),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Container(
+                                  child: Text("4", style: TextStyle(
+                                      fontSize: 30.0
+                                  ),),
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      width: 10.0,
+                                      height: 10.0,
+                                      child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          color: Colors.green,
+                                          borderRadius: BorderRadius.circular(20.0),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 5.0,
+                                    ),
+                                    Text("Paid"),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              children: [
+                                Container(
+                                  child: Text("2", style: TextStyle(
+                                      fontSize: 30.0
+                                  ),),
+                                ),
+                                SizedBox(
+                                  height: 10.0,
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    SizedBox(
+                                      width: 10.0,
+                                      height: 10.0,
+                                      child: DecoratedBox(
+                                        decoration: BoxDecoration(
+                                          color: Colors.orangeAccent,
+                                          borderRadius: BorderRadius.circular(20.0),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 5.0,
+                                    ),
+                                    Text("Unpaid"),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
                   ),
-                  NeumorphicCard(
-                    innerPadding: 20.0,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
+                ),
+                Text("Asset Information"),
+                SizedBox(
+                  height: 20.0,
+                ),
+                NeumorphicCard(
+                  mInnerPadding: 20.0,
+                  mChild: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Location'),
+                      SizedBox(height: 5.0,),
+                      Text('A-7-10b, Jalan Cypark, Cypark Village, 08000 Sungai Petani Kedah.'),
+                    ],
+                  ),
+                ),
+                Text("Rental Information"),
+                SizedBox(
+                  height: 20.0,
+                ),
+                NeumorphicCard(
+                  mInnerPadding: 20.0,
+                  mChild: Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 100.0,
-                                  ),
-                                  Text("No.of tenant"),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 100.0,
-                                  ),
-                                  Text("Paid"),
-                                ],
-                              ),
-                            ),
-                            Expanded(
-                              child: Column(
-                                children: [
-                                  Container(
-                                    height: 100.0,
-                                  ),
-                                  Text("Unpaid"),
-                                ],
-                              ),
-                            ),
+                            Text('Max no.of tenants'),
+                            SizedBox(height: 5.0,),
+                            Text('5'),
                           ],
-                        )
-                      ],
-                    ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text('Rent per month (RM)'),
+                            SizedBox(height: 5.0,),
+                            Text('380'),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  Text("Asset Information"),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  NeumorphicCard(
-                    innerPadding: 20.0,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [],
-                    ),
-                  ),
-                  Text("Rental Information"),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  NeumorphicCard(
-                    innerPadding: 20.0,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [],
-                    ),
-                  ),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  Text("Tenants Information"),
-                  SizedBox(
-                    height: 20.0,
-                  ),
-                  ...hashList,
-                ],
-              ),
-            )
-          ],
-        ),
-
-      ]),
+                ),
+                SizedBox(
+                  height: 20.0,
+                ),
+                Text("Tenants Information"),
+                SizedBox(
+                  height: 20.0,
+                ),
+                ...hashList,
+              ],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

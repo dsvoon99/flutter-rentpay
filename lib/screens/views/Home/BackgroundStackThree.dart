@@ -119,7 +119,7 @@ class _BackgroundStackThreeState extends State<BackgroundStackThree> with Ticker
                             padding: EdgeInsets.all(30.0),
                           ),
                           onPressed: () {
-
+                            Navigator.pushNamed(context, kMyAccountScreen);
                           },
                         ),
                         NeumorphicButton(

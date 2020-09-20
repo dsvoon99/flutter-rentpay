@@ -4,15 +4,15 @@ import 'package:rent_pay/utilities/ColorUIExtension.dart';
 
 class NeumorphicCard extends StatefulWidget {
 
-  final Widget child;
-  final Gradient gradient;
-  final double innerPadding;
-  final double borderRadius;
-  final Function onTap;
-  final EdgeInsets outerMargin;
-  final double height;
+  final Widget mChild;
+  final Gradient mGradient;
+  final double mInnerPadding;
+  final double mBorderRadius;
+  final Function mOnTap;
+  final EdgeInsets mOuterMargin;
+  final double mHeight;
 
-  NeumorphicCard({this.child, this.gradient, this.innerPadding = 30.0, this.borderRadius = 20.0, this.onTap, this.outerMargin, this.height });
+  NeumorphicCard({this.mChild, this.mGradient, this.mInnerPadding = 30.0, this.mBorderRadius = 20.0, this.mOnTap, this.mOuterMargin, this.mHeight });
 
   @override
   _NeumorphicCardState createState() => _NeumorphicCardState();
@@ -24,12 +24,12 @@ class _NeumorphicCardState extends State<NeumorphicCard> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: widget.onTap,
+      onTap: widget.mOnTap,
       child: Container(
-        margin: widget.outerMargin ?? EdgeInsets.only(bottom: 20.0),
-        padding: EdgeInsets.all(widget.innerPadding),
+        margin: widget.mOuterMargin ?? EdgeInsets.only(bottom: 20.0),
+        padding: EdgeInsets.all(widget.mInnerPadding),
         decoration: BoxDecoration(
-            gradient: widget.gradient ?? LinearGradient(
+            gradient: widget.mGradient ?? LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
@@ -59,8 +59,8 @@ class _NeumorphicCardState extends State<NeumorphicCard> {
               ),
             ]),
         width: double.infinity,
-        height: widget.height ?? null,
-        child: widget.child,
+        height: widget.mHeight ?? null,
+        child: widget.mChild,
       ),
     );
   }
